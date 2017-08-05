@@ -1,0 +1,1007 @@
+
+{
+	"allowSleep" : true,
+	"autoClearForces" : true,
+	"body" : 
+	[
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 0.5
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture6"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.09817477315664291,
+			"massData-mass" : 0.7853981852531433,
+			"name" : "body6",
+			"position" : 
+			{
+				"x" : -23.96438217163086,
+				"y" : 2.825648069381714
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture5",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : 
+							[
+								1.325004577636719,
+								1.325004577636719,
+								-1.325000762939453,
+								-1.325000762939453
+							],
+							"y" : [ -0.5, 0.5, 0.5, -0.5 ]
+						}
+					}
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 1.771645069122314,
+			"massData-center" : 
+			{
+				"x" : 1.907348632812500e-06,
+				"y" : 0
+			},
+			"massData-mass" : 2.650005340576172,
+			"name" : "body5",
+			"position" : 
+			{
+				"x" : -22.13597297668457,
+				"y" : 2.828834533691406
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture5",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : 
+							[
+								1.325004577636719,
+								1.325004577636719,
+								-1.325000762939453,
+								-1.325000762939453
+							],
+							"y" : [ -0.5, 0.5, 0.5, -0.5 ]
+						}
+					}
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 1.771645069122314,
+			"massData-center" : 
+			{
+				"x" : 1.907348632812500e-06,
+				"y" : 0
+			},
+			"massData-mass" : 2.650005340576172,
+			"name" : "body5",
+			"position" : 
+			{
+				"x" : -19.40104675292969,
+				"y" : 2.828834533691406
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 10.06635951995850, 10.04983329772949, 3.535616874694824 ],
+							"y" : [ -1.921152591705322, -0.9438328742980957, 1.660101890563965 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 10.06635951995850, 3.535616874694824, 1.755880713462830 ],
+							"y" : [ -1.921152591705322, 1.660101890563965, 1.384983420372009 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 10.06635951995850, 1.755880713462830, -2.207534790039062 ],
+							"y" : [ -1.921152591705322, 1.384983420372009, -0.4553420543670654 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 1.755880713462830, 0.6011410951614380, -2.207534790039062 ],
+							"y" : [ 1.384983420372009, 1.705782413482666, -0.4553420543670654 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 0.6011410951614380, -2.532225847244263, -2.207534790039062 ],
+							"y" : [ 1.705782413482666, 0.1077532768249512, -0.4553420543670654 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 0.6011410951614380, -3.037858486175537, -2.532225847244263 ],
+							"y" : [ 1.705782413482666, 6.879612922668457, 0.1077532768249512 ]
+						}
+					}
+				}
+			],
+			"linearVelocity" : 0,
+			"name" : "body2",
+			"position" : 
+			{
+				"x" : -21.97721290588379,
+				"y" : -2.575684070587158
+			},
+			"type" : 0
+		},
+		
+		{
+			"angle" : 3.511998176574707,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "script",
+					"string" : "misc/lift.js"
+				}
+			],
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture4",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : 
+							[
+								1.919174194335938,
+								1.919174194335938,
+								-1.919174194335938,
+								-1.919174194335938
+							],
+							"y" : 
+							[
+								-0.1322604864835739,
+								0.1322603970766068,
+								0.1322607249021530,
+								-0.1322601586580276
+							]
+						}
+					}
+				}
+			],
+			"gravityScale" : 0,
+			"linearVelocity" : 0,
+			"name" : "body4",
+			"position" : 
+			{
+				"x" : -14.75036907196045,
+				"y" : 0.9714717864990234
+			},
+			"type" : 1
+		},
+		
+		{
+			"angle" : 3.141592741012573,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "script",
+					"string" : "misc/lift.js"
+				}
+			],
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture4",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : 
+							[
+								1.919174194335938,
+								1.919174194335938,
+								-1.919174194335938,
+								-1.919174194335938
+							],
+							"y" : 
+							[
+								-0.1322604864835739,
+								0.1322603970766068,
+								0.1322607249021530,
+								-0.1322601586580276
+							]
+						}
+					}
+				}
+			],
+			"gravityScale" : 0,
+			"linearVelocity" : 0,
+			"name" : "body4",
+			"position" : 
+			{
+				"x" : -11.20516586303711,
+				"y" : -2.309466838836670
+			},
+			"type" : 1
+		},
+		
+		{
+			"angle" : 1.394954323768616,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 
+						{
+							"x" : 4.768371582031250e-07,
+							"y" : 1.192092895507812e-07
+						},
+						"radius" : 0.3486772179603577
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.02321743033826351,
+			"massData-center" : 
+			{
+				"x" : 4.768371582031250e-07,
+				"y" : 1.192092895507812e-07
+			},
+			"massData-mass" : 0.3819416463375092,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 7.764092922210693,
+				"y" : 0.4506417512893677
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 1.394954323768616,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 0.3251936137676239
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.01756660826504230,
+			"massData-mass" : 0.3322262167930603,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 9.353853225708008,
+				"y" : 3.046657562255859
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 1.394954323768616,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 0.2101881504058838
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.003065863624215126,
+			"massData-mass" : 0.1387926191091537,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 8.680105209350586,
+				"y" : 1.027579545974731
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 1.253056168556213,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 0.3251936137676239
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.01756660826504230,
+			"massData-mass" : 0.3322262167930603,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 8.020226478576660,
+				"y" : 1.646117210388184
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 1.253056168556213,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 0.2101881504058838
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.003065863624215126,
+			"massData-mass" : 0.1387926191091537,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 7.915558815002441,
+				"y" : 2.696838378906250
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 1.253056168556213,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 
+						{
+							"x" : 4.768371582031250e-07,
+							"y" : 1.192092895507812e-07
+						},
+						"radius" : 0.3486772179603577
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.02321743033826351,
+			"massData-center" : 
+			{
+				"x" : 4.768371582031250e-07,
+				"y" : 1.192092895507812e-07
+			},
+			"massData-mass" : 0.3819416463375092,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 6.927161693572998,
+				"y" : 2.255243778228760
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 0.2101881504058838
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.003065863624215126,
+			"massData-mass" : 0.1387926191091537,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 6.821318626403809,
+				"y" : 0.4832896590232849
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 
+						{
+							"x" : 4.768371582031250e-07,
+							"y" : 1.192092895507812e-07
+						},
+						"radius" : 0.3486772179603577
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.02321743033826351,
+			"massData-center" : 
+			{
+				"x" : 4.768371582031250e-07,
+				"y" : 1.192092895507812e-07
+			},
+			"massData-mass" : 0.3819416463375092,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 6.093033313751221,
+				"y" : 1.284248352050781
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 0.3251936137676239
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture3"
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-I" : 0.01756660826504230,
+			"massData-mass" : 0.3322262167930603,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 5.855893611907959,
+				"y" : 0.05559444427490234
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 1.755880713462830, 0.6011410951614380, -1.060397624969482 ],
+							"y" : [ 1.384983420372009, 1.705782413482666, 0.5323801636695862 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 12.95774364471436, 7.89901590347290, 5.723009109497070 ],
+							"y" : [ 4.736433029174805, 7.094628334045410, 4.940836906433105 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 14.47116374969482, 12.95774364471436, 7.755775451660156 ],
+							"y" : [ 2.290513515472412, 4.736433029174805, -1.427611827850342 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 12.95774364471436, 5.723009109497070, 7.755775451660156 ],
+							"y" : [ 4.736433029174805, 4.940836906433105, -1.427611827850342 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 7.755775451660156, 5.723009109497070, 3.535616874694824 ],
+							"y" : [ -1.427611827850342, 4.940836906433105, 1.660101890563965 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 7.755775451660156, 3.535616874694824, 1.755880713462830 ],
+							"y" : [ -1.427611827850342, 1.660101890563965, 1.384983420372009 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 7.755775451660156, 1.755880713462830, -2.207534790039062 ],
+							"y" : [ -1.427611827850342, 1.384983420372009, -0.4553420543670654 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 1.755880713462830, -1.060397624969482, -2.207534790039062 ],
+							"y" : [ 1.384983420372009, 0.5323801636695862, -0.4553420543670654 ]
+						}
+					}
+				},
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ -1.060397624969482, -2.532225847244263, -2.207534790039062 ],
+							"y" : [ 0.5323801636695862, 0.1077532768249512, -0.4553420543670654 ]
+						}
+					}
+				}
+			],
+			"linearVelocity" : 0,
+			"name" : "body2",
+			"position" : 
+			{
+				"x" : 4.173749923706055,
+				"y" : -3.068334579467773
+			},
+			"type" : 0
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture1",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : 
+							[
+								11.91310024261475,
+								-11.91305828094482,
+								-11.91305828094482,
+								11.91305828094482
+							],
+							"y" : [ 0.5, 0.5, -0.5, -0.5 ]
+						}
+					}
+				}
+			],
+			"linearVelocity" : 0,
+			"name" : "body1",
+			"position" : 
+			{
+				"x" : 0.0048522949218750,
+				"y" : -4.012658119201660
+			},
+			"type" : 0
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "script",
+					"string" : "characters/default.js"
+				}
+			],
+			"fixedRotation" : true,
+			"fixture" : 
+			[
+				
+				{
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture0",
+					"polygon" : 
+					{
+						"vertices" : 
+						{
+							"x" : [ 0.5, 0.5, -0.5, -0.5 ],
+							"y" : 
+							[
+								-0.9955358505249023,
+								0.9955358505249023,
+								0.9955358505249023,
+								-0.9955358505249023
+							]
+						}
+					}
+				}
+			],
+			"linearVelocity" : 0,
+			"massData-mass" : 1.991071701049805,
+			"name" : "body0",
+			"position" : 0,
+			"type" : 2
+		}
+	],
+	"collisionbitplanes" : 
+	{
+		"names" : 
+		[
+			"bitplane1",
+			"bitplane2",
+			"bitplane3",
+			"bitplane4",
+			"bitplane5",
+			"bitplane6",
+			"bitplane7",
+			"bitplane8",
+			"bitplane9",
+			"bitplane10",
+			"bitplane11",
+			"bitplane12",
+			"bitplane13",
+			"bitplane14",
+			"bitplane15",
+			"bitplane16",
+			"bitplane17",
+			"bitplane18",
+			"bitplane19",
+			"bitplane20",
+			"bitplane21",
+			"bitplane22",
+			"bitplane23",
+			"bitplane24",
+			"bitplane25",
+			"bitplane26",
+			"bitplane27",
+			"bitplane28",
+			"bitplane29",
+			"bitplane30",
+			"bitplane31",
+			"bitplane32"
+		]
+	},
+	"continuousPhysics" : true,
+	"gravity" : 
+	{
+		"x" : 0,
+		"y" : -10
+	},
+	"joint" : 
+	[
+		
+		{
+			"anchorA" : 
+			{
+				"x" : -5.828859329223633,
+				"y" : 5.988100051879883
+			},
+			"anchorB" : 
+			{
+				"x" : -3.252689361572266,
+				"y" : 11.39259910583496
+			},
+			"bodyA" : 2,
+			"bodyB" : 3,
+			"enableLimit" : false,
+			"enableMotor" : false,
+			"localAxisA" : 
+			{
+				"x" : 0,
+				"y" : 1
+			},
+			"lowerLimit" : 0,
+			"maxMotorForce" : 0,
+			"motorSpeed" : 0,
+			"name" : "joint3",
+			"refAngle" : 0,
+			"type" : "prismatic",
+			"upperLimit" : 0
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : 1.358449935913086,
+				"y" : 0.01469445228576660
+			},
+			"anchorB" : 
+			{
+				"x" : -1.376470565795898,
+				"y" : 0.01469445228576660
+			},
+			"bodyA" : 1,
+			"bodyB" : 2,
+			"enableLimit" : false,
+			"enableMotor" : false,
+			"jointSpeed" : 0,
+			"lowerLimit" : 0,
+			"maxMotorTorque" : 0,
+			"motorSpeed" : 0,
+			"name" : "joint2",
+			"refAngle" : 0,
+			"type" : "revolute",
+			"upperLimit" : 0
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : 0.4903221130371094,
+				"y" : 0.01788139343261719
+			},
+			"anchorB" : 
+			{
+				"x" : -1.338090896606445,
+				"y" : 0.01469492912292480
+			},
+			"bodyA" : 0,
+			"bodyB" : 1,
+			"enableLimit" : false,
+			"enableMotor" : false,
+			"jointSpeed" : 0,
+			"lowerLimit" : 0,
+			"maxMotorTorque" : 0,
+			"motorSpeed" : 0,
+			"name" : "joint1",
+			"refAngle" : 0,
+			"type" : "revolute",
+			"upperLimit" : 0
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : 0.0369567871093750,
+				"y" : 0.02351856231689453
+			},
+			"anchorB" : 
+			{
+				"x" : -1.950210571289062,
+				"y" : 5.424849987030029
+			},
+			"bodyA" : 0,
+			"bodyB" : 3,
+			"enableLimit" : false,
+			"enableMotor" : false,
+			"jointSpeed" : 0,
+			"lowerLimit" : 0,
+			"maxMotorTorque" : 0,
+			"motorSpeed" : 0,
+			"name" : "joint0",
+			"refAngle" : 0,
+			"type" : "revolute",
+			"upperLimit" : 0
+		}
+	],
+	"positionIterations" : 3,
+	"stepsPerSecond" : 60.0,
+	"subStepping" : false,
+	"velocityIterations" : 8,
+	"warmStarting" : true
+}
