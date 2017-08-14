@@ -25,6 +25,7 @@ bool js_custom_classes_Body_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 void js_custom_classes_Body_finalize(JSContext *cx, JSObject *obj);
 void js_register_custom_classes_Body(JSContext *cx, JS::HandleObject global);
 void register_all_custom_classes(JSContext* cx, JS::HandleObject obj);
+bool js_custom_classes_Body_getVertices(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_custom_classes_Body_getAngularVelocity(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_custom_classes_Body_getContacts(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_custom_classes_Body_getComponentJS(JSContext *cx, uint32_t argc, jsval *vp);
@@ -44,6 +45,17 @@ bool js_custom_classes_Body_getLinearVelocity(JSContext *cx, uint32_t argc, jsva
 bool js_custom_classes_Body_onContactBegin(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_custom_classes_Body_setDrawRotation(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_custom_classes_Body_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_gm_Vec2Position_class;
+extern JSObject *jsb_gm_Vec2Position_prototype;
+
+bool js_custom_classes_Vec2Position_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_custom_classes_Vec2Position_finalize(JSContext *cx, JSObject *obj);
+void js_register_custom_classes_Vec2Position(JSContext *cx, JS::HandleObject global);
+void register_all_custom_classes(JSContext* cx, JS::HandleObject obj);
+bool js_custom_classes_Vec2Position_getX(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_custom_classes_Vec2Position_getY(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_custom_classes_Vec2Position_Vec2Position(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_gm_ManifoldPoint_class;
 extern JSObject *jsb_gm_ManifoldPoint_prototype;

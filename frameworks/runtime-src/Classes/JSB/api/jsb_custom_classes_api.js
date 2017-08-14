@@ -68,6 +68,16 @@ getInstance : function (
 gm.Body = {
 
 /**
+ * @method getVertices
+ * @return {Array}
+ */
+getVertices : function (
+)
+{
+    return new Array();
+},
+
+/**
  * @method getAngularVelocity
  * @return {float}
  */
@@ -265,6 +275,46 @@ str
 )
 {
     return gm::Body;
+},
+
+};
+
+/**
+ * @class Vec2Position
+ */
+gm.Vec2Position = {
+
+/**
+ * @method getX
+ * @return {float}
+ */
+getX : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method getY
+ * @return {float}
+ */
+getY : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method Vec2Position
+ * @constructor
+ * @param {float} arg0
+ * @param {float} arg1
+ */
+Vec2Position : function (
+float, 
+float 
+)
+{
 },
 
 };

@@ -168,6 +168,24 @@ void js_register_custom_classes_GameScene(JSContext *cx, JS::HandleObject global
 JSClass  *jsb_gm_Body_class;
 JSObject *jsb_gm_Body_prototype;
 
+bool js_custom_classes_Body_getVertices(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    gm::Body* cobj = (gm::Body *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_custom_classes_Body_getVertices : Invalid Native Object");
+    if (argc == 0) {
+        cocos2d::Vector<gm::Vec2Position *> ret = cobj->getVertices();
+        jsval jsret = JSVAL_NULL;
+        jsret = ccvector_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+
+    JS_ReportError(cx, "js_custom_classes_Body_getVertices : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
 bool js_custom_classes_Body_getAngularVelocity(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -626,6 +644,7 @@ void js_register_custom_classes_Body(JSContext *cx, JS::HandleObject global) {
     };
 
     static JSFunctionSpec funcs[] = {
+        JS_FN("getVertices", js_custom_classes_Body_getVertices, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getAngularVelocity", js_custom_classes_Body_getAngularVelocity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getContacts", js_custom_classes_Body_getContacts, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getComponentJS", js_custom_classes_Body_getComponentJS, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -666,6 +685,109 @@ void js_register_custom_classes_Body(JSContext *cx, JS::HandleObject global) {
     // add the proto and JSClass to the type->js info hash table
     JS::RootedObject proto(cx, jsb_gm_Body_prototype);
     jsb_register_class<gm::Body>(cx, jsb_gm_Body_class, proto, parent_proto);
+}
+JSClass  *jsb_gm_Vec2Position_class;
+JSObject *jsb_gm_Vec2Position_prototype;
+
+bool js_custom_classes_Vec2Position_getX(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    gm::Vec2Position* cobj = (gm::Vec2Position *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_custom_classes_Vec2Position_getX : Invalid Native Object");
+    if (argc == 0) {
+        double ret = cobj->getX();
+        jsval jsret = JSVAL_NULL;
+        jsret = DOUBLE_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+
+    JS_ReportError(cx, "js_custom_classes_Vec2Position_getX : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
+bool js_custom_classes_Vec2Position_getY(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    gm::Vec2Position* cobj = (gm::Vec2Position *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_custom_classes_Vec2Position_getY : Invalid Native Object");
+    if (argc == 0) {
+        double ret = cobj->getY();
+        jsval jsret = JSVAL_NULL;
+        jsret = DOUBLE_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+
+    JS_ReportError(cx, "js_custom_classes_Vec2Position_getY : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
+bool js_custom_classes_Vec2Position_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    double arg0 = 0;
+    double arg1 = 0;
+    ok &= JS::ToNumber( cx, args.get(0), &arg0) && !isnan(arg0);
+    ok &= JS::ToNumber( cx, args.get(1), &arg1) && !isnan(arg1);
+    JSB_PRECONDITION2(ok, cx, false, "js_custom_classes_Vec2Position_constructor : Error processing arguments");
+    gm::Vec2Position* cobj = new (std::nothrow) gm::Vec2Position(arg0, arg1);
+
+    js_type_class_t *typeClass = js_get_type_from_native<gm::Vec2Position>(cobj);
+
+    // link the native object with the javascript object
+    JS::RootedObject jsobj(cx, jsb_ref_create_jsobject(cx, cobj, typeClass, "gm::Vec2Position"));
+    args.rval().set(OBJECT_TO_JSVAL(jsobj));
+    if (JS_HasProperty(cx, jsobj, "_ctor", &ok) && ok)
+        ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(jsobj), "_ctor", args);
+    return true;
+}
+
+
+void js_register_custom_classes_Vec2Position(JSContext *cx, JS::HandleObject global) {
+    jsb_gm_Vec2Position_class = (JSClass *)calloc(1, sizeof(JSClass));
+    jsb_gm_Vec2Position_class->name = "Vec2Position";
+    jsb_gm_Vec2Position_class->addProperty = JS_PropertyStub;
+    jsb_gm_Vec2Position_class->delProperty = JS_DeletePropertyStub;
+    jsb_gm_Vec2Position_class->getProperty = JS_PropertyStub;
+    jsb_gm_Vec2Position_class->setProperty = JS_StrictPropertyStub;
+    jsb_gm_Vec2Position_class->enumerate = JS_EnumerateStub;
+    jsb_gm_Vec2Position_class->resolve = JS_ResolveStub;
+    jsb_gm_Vec2Position_class->convert = JS_ConvertStub;
+//
+//    jsb_gm_Vec2Position_class->finalize = js_ref_finalize;
+//
+    jsb_gm_Vec2Position_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+    static JSPropertySpec properties[] = {
+        JS_PSG("__nativeObj", js_is_native_obj, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_PS_END
+    };
+
+    static JSFunctionSpec funcs[] = {
+        JS_FN("getX", js_custom_classes_Vec2Position_getX, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getY", js_custom_classes_Vec2Position_getY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+    };
+
+    JSFunctionSpec *st_funcs = NULL;
+
+    jsb_gm_Vec2Position_prototype = JS_InitClass(
+        cx, global,
+        JS::NullPtr(),
+        jsb_gm_Vec2Position_class,
+        js_custom_classes_Vec2Position_constructor, 0, // constructor
+        properties,
+        funcs,
+        NULL, // no static properties
+        st_funcs);
+
+    // add the proto and JSClass to the type->js info hash table
+    JS::RootedObject proto(cx, jsb_gm_Vec2Position_prototype);
+    jsb_register_class<gm::Vec2Position>(cx, jsb_gm_Vec2Position_class, proto, JS::NullPtr());
 }
 JSClass  *jsb_gm_ManifoldPoint_class;
 JSObject *jsb_gm_ManifoldPoint_prototype;
@@ -1456,6 +1578,7 @@ void register_all_custom_classes(JSContext* cx, JS::HandleObject obj) {
     js_register_custom_classes_Body(cx, ns);
     js_register_custom_classes_ManifoldPoint(cx, ns);
     js_register_custom_classes_SplineBasedVegetation(cx, ns);
+    js_register_custom_classes_Vec2Position(cx, ns);
     js_register_custom_classes_BodyContact(cx, ns);
     js_register_custom_classes_GameScene(cx, ns);
 }

@@ -112,6 +112,22 @@ void Body::onContactEnd(b2Contact *contact){
 	}
 }
 
+cocos2d::Vector<Vec2Position*> Body::getVertices(){
+	cocos2d::Vector<Vec2Position*> points;
+	for (b2Fixture* f = boxBody->GetFixtureList(); f; f = f->GetNext()){
+		if(f->GetType() == b2Shape::e_polygon){
+			auto shape = static_cast<b2PolygonShape*>(f->GetShape());
+			for(int i = shape->GetVertexCount() - 1;i;i--){
+				auto point = shape->GetVertex(i);
+				points.pushBack(new Vec2Position(point.x*GSInst->getPhysWorldScale(), point.y*GSInst->getPhysWorldScale()));
+			}
+			
+		}
+		//Add logic for lines
+	}
+	return points;
+};
+
 cocos2d::Vector<BodyContact*> Body::getContacts(){
 	cocos2d::Vector<BodyContact*> ret;
 	for(auto i : contacts)
@@ -119,8 +135,32 @@ cocos2d::Vector<BodyContact*> Body::getContacts(){
 
 	return ret;
 }
+/*
+ 
+Vec2Position *Vec2Position::create(float xx, float yy){
+	Vec2Position *ret = new (std::nothrow) Vec2Position();
+
+	if (ret && ret->init(xx, yy))
+		ret->autorelease();
+	else
+		CC_SAFE_DELETE(ret);
+
+	return ret;
+}
+bool Vec2Position::init(float xx, float yy){
+	x = xx;
+	y = yy;
+
+	return true;
+}
+
+Vec2Position::Vec2Position(){
+};
+Vec2Position::~Vec2Position(){
+};
 
 
+*/
 ManifoldPoint *ManifoldPoint::create(const b2ManifoldPoint &point){
 	ManifoldPoint *ret = new (std::nothrow) ManifoldPoint();
 
@@ -136,6 +176,8 @@ bool ManifoldPoint::init(const b2ManifoldPoint &point){
 	localPoint = Vec2(point.localPoint.x, point.localPoint.y);
 	normalImpulse = point.normalImpulse;
 	tangentImpulse = point.tangentImpulse;
+
+	return true;
 }
 
 cocos2d::Vector<ManifoldPoint*> BodyContact::getManifoldPoints(){

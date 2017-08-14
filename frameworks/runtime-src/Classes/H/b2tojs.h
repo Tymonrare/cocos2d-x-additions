@@ -5,6 +5,7 @@
 namespace gm{
 
 class BodyContact;
+class Vec2Position;
 
 class Body : public cocos2d::Node
 {
@@ -61,6 +62,8 @@ class Body : public cocos2d::Node
 				{ boxBody->SetFixedRotation(flag);};
 
 		cocos2d::Vector<BodyContact*> getContacts();
+
+		cocos2d::Vector<Vec2Position*> getVertices();
 	private:
 		Body();
 		~Body();
@@ -73,6 +76,15 @@ class Body : public cocos2d::Node
 		std::map<b2Contact*, BodyContact*> contacts;
 	protected:
 
+};
+
+//For JS bind
+class Vec2Position : public Ref, Vec2
+{
+	public:
+		Vec2Position(float xx, float yy) : Vec2(xx, yy){};
+		inline float getX(){return x;};
+		inline float getY(){return y;};
 };
 
 class ManifoldPoint : public Ref
