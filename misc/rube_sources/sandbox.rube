@@ -59,7 +59,7 @@
       "compactZeroVecs" : true,
       "saveFullPathForImages" : false,
       "saveFullPathForSamplerOutput" : false,
-      "saveImagePathsRelativeToRUBEFile" : false,
+      "saveImagePathsRelativeToRUBEFile" : true,
       "saveSamplerOutputPathsRelativeToRUBEFile" : false,
       "useGsonFormat" : false,
       "useHumanReadableFloats" : true,
@@ -270,8 +270,17 @@
       
       {
         "angle" : 0,
+        "angularDamping" : 10,
         "angularVelocity" : 0,
         "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "script",
+            "string" : "misc/hover.js"
+          }
+        ],
         "fixture" : 
         [
           
@@ -295,6 +304,7 @@
             }
           }
         ],
+        "gravityScale" : 0,
         "id" : 6,
         "linearVelocity" : 0,
         "massData-I" : 0.02321743033826351,
@@ -940,32 +950,32 @@
             [
               
               {
-                "type" : "polygon"
+                "type" : "line"
               }
             ],
             "vertices" : 
             {
               "x" : 
               [
-                -2.570405721664429,
-                -1.217591285705566,
-                -0.6192402839660645,
-                -0.02178953588008881,
-                0.7773380875587463,
-                1.634891510009766,
-                2.687664508819580,
-                2.996488571166992
+                -10.86140537261963,
+                -4.719911098480225,
+                -4.137467384338379,
+                -3.536345958709717,
+                -2.074398994445801,
+                -0.8817083835601807,
+                0.01340295374393463,
+                3.495827198028564
               ],
               "y" : 
               [
-                -0.9408876895904541,
-                -0.2117557525634766,
-                -0.09430739283561707,
-                -0.1089919805526733,
-                -0.3165192008018494,
-                -0.4453109502792358,
-                -0.3941562175750732,
-                -0.9439349770545959
+                -0.9454061985015869,
+                0.7180058956146240,
+                -0.05385494232177734,
+                -0.2438672482967377,
+                -0.1428117156028748,
+                -0.2119793891906738,
+                -0.5049175024032593,
+                -0.1632523536682129
               ]
             }
           }
@@ -979,6 +989,26 @@
           "y" : -2.567661046981812
         },
         "type" : "static"
+      }
+    ],
+    "metaimage" : 
+    [
+      
+      {
+        "aspectScale" : 1,
+        "body" : 6,
+        "center" : 
+        {
+          "x" : 0.003742218017578125,
+          "y" : -0.002377510070800781
+        },
+        "file" : "res/images/develop.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 2,
+        "name" : "image0",
+        "opacity" : 0.5,
+        "scale" : 0.6037288904190063
       }
     ],
     "metajoint" : 

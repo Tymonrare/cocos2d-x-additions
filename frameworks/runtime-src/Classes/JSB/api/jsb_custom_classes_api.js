@@ -561,11 +561,13 @@ updateSpline : function (
  * @param {float} arg0
  * @param {float} arg1
  * @param {float} arg2
- * @param {int} arg3
- * @param {bool} arg4
+ * @param {float} arg3
+ * @param {int} arg4
  * @param {bool} arg5
+ * @param {bool} arg6
  */
 growUp : function (
+float, 
 float, 
 float, 
 float, 

@@ -37,7 +37,7 @@ Vec2 SplineBasedContentBase::getPointNolmal(float where){
 	return vec;
 };
 
-float SplineBasedContentBase::getSplineLength(){
+float SplineBasedContentBase::getSplineLength(PointArray *spline){
 	auto points = spline->getControlPoints();
 	float len = 0;
 
@@ -46,6 +46,44 @@ float SplineBasedContentBase::getSplineLength(){
 		len += (*points->at(i + 1) - *points->at(i)).length();
 
 	return len;
+}
+float SplineBasedContentBase::getSplineLength(){
+	return getSplineLength(spline);
+}
+
+PointArray *SplineBasedContentBase::makeCardinalSpline(PointArray *config, float tension,  unsigned int segments)
+{
+	PointArray *spline = PointArray::create(0);
+
+	ssize_t p;
+	float lt;
+	float deltaT = 1.0f / config->count();
+
+	for( unsigned int i=0; i < segments+1;i++) {
+
+		float dt = (float)i / segments;
+
+		// border
+		if( dt == 1 ) {
+			p = config->count() - 1;
+			lt = 1;
+		} else {
+			p = dt / deltaT;
+			lt = (dt - deltaT * (float)p) / deltaT;
+		}
+
+		// Interpolate
+		Vec2 pp0 = config->getControlPointAtIndex(p-1);
+		Vec2 pp1 = config->getControlPointAtIndex(p+0);
+		Vec2 pp2 = config->getControlPointAtIndex(p+1);
+		Vec2 pp3 = config->getControlPointAtIndex(p+2);
+
+		Vec2 newPos = ccCardinalSplineAt( pp0, pp1, pp2, pp3, tension, lt);
+		spline->addControlPoint(newPos);
+	}
+
+	return spline;
+	//CC_SAFE_DELETE_ARRAY(vertices);
 }
 
 SplineBasedVegetation *SplineBasedVegetation::create(cocos2d::PointArray *spline){
@@ -60,10 +98,34 @@ SplineBasedVegetation *SplineBasedVegetation::create(cocos2d::PointArray *spline
 };
 
 bool SplineBasedVegetation::init(cocos2d::PointArray *spline){
+	//auto draw = DrawNode::create();
+	//draw->drawCardinalSpline(spline, 0.5f, spline->count()*10, Color4F(1,1,1,1));
+	//addChild(draw);
 	this->spline = spline;
 	spline->retain();
+	makeSplineVertexDistEqual();
 	return true;
 };
+
+void SplineBasedContentBase::makeSplineVertexDistEqual(){
+	CCASSERT(!spline, "spline empty, can't process");
+
+	
+	float minDist = -1;
+	for(int i = 0;i < spline->count() - 1;i++){
+		float dist = (spline->getControlPointAtIndex(i+1) - spline->getControlPointAtIndex(i)).length();
+		log("%f", dist);
+		if(minDist < 0 || dist < minDist)
+			minDist = dist;
+	}
+	for(int i = 0;i < spline->count() - 1;i++){
+		float dist = (spline->getControlPointAtIndex(i+1) - spline->getControlPointAtIndex(i)).length();
+		if(dist > minDist*2){
+			Vec2 point = (spline->getControlPointAtIndex(i+1) - spline->getControlPointAtIndex(i)).getNormalized()*minDist + spline->getControlPointAtIndex(i);
+			spline->insertControlPoint(point, i+1);
+		}
+	}
+}
 
 SplineBasedVegetation *SplineBasedVegetation::createWithFilename_jsb(Vec2 *spline, int splineLen, const std::string &path, const Vec2 &textureAnchor){
 	PointArray *points = PointArray::create(0);
@@ -150,7 +212,7 @@ SplineBasedVegetation::~SplineBasedVegetation(){
 	spline->release();
 };
 
-void SplineBasedVegetation::growUp(float step, float spreadPos, float spreadAngle, int spreadDepth, bool useSplineAngle, bool splineRelative){
+void SplineBasedVegetation::growUp(float step, float spreadPos, float spreadAngle, float spreadH, int spreadDepth, bool useSplineAngle, bool splineRelative){
 	CCASSERT(texturePath.empty(), "texturePath empty, can't use growUp");
 
 	useSplineNormals = useSplineAngle;
@@ -162,15 +224,20 @@ void SplineBasedVegetation::growUp(float step, float spreadPos, float spreadAngl
 		Node *obj;
 		obj = Sprite::create(texturePath, batchRect.at(random(0, (int)batchRect.size()-1)));
 		obj->setAnchorPoint(textureAnchor);
-		obj->setPosition(getPointOnSpline(dt));
 
-		if(useSplineAngle){
-			Vec2 vec = getPointNolmal(dt);
-			obj->setRotation(CC_RADIANS_TO_DEGREES(atan2f(vec.x, vec.y)));
-		}
 
-		obj->setRotation(obj->getRotation() + random(-spreadAngle, spreadAngle));
+		float rotation = random(-spreadAngle, spreadAngle);
+		Vec2 rotvec = getPointNolmal(dt);
+		if(useSplineAngle)
+			rotation += CC_RADIANS_TO_DEGREES(atan2f(rotvec.x, rotvec.y));
 
-		batchParent->addChild(obj, random(-spreadDepth, spreadDepth));
+		int Hpos = random(-spreadH, spreadH);
+		Vec2 position = getPointOnSpline(dt) + Vec2(0, Hpos).rotateByAngle(Vec2::ZERO, rotation);
+
+
+		obj->setRotation(rotation);
+		obj->setPosition(position);
+
+		batchParent->addChild(obj, random(-spreadDepth, spreadDepth) - Hpos);
 	}
 }

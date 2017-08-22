@@ -45,11 +45,5 @@ var HelloWorldScene = cc.Scene.extend({
         sc.simpleJScallback();
         cc.director.runScene(sc);
         sc.setPosition(640, 360);
-
-        var vertices3 = [cc.p(0, 100), cc.p(100, 0), cc.p(200, -50), cc.p(500, 0)];
-        var veg = gm.SplineBasedVegetation.createWithFile(vertices3, 4, "res/images/flowers2.png")
-        sc.addChild(veg);
-        veg.growUp(0.1, 0.1, 20);
-        veg.setScale(20, 20);
     },
 });

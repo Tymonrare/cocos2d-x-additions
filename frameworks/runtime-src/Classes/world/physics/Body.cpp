@@ -123,6 +123,21 @@ cocos2d::Vector<Vec2Position*> Body::getVertices(){
 			}
 			
 		}
+		if(f->GetType() == b2Shape::e_chain){
+			auto shape = static_cast<b2ChainShape*>(f->GetShape());
+			for (int i = 0; i < shape->GetChildCount(); ++i)
+			{
+				b2EdgeShape edge;
+				shape->GetChildEdge(&edge, i);
+				if(i == 0){
+					auto point = edge.m_vertex1;
+					points.pushBack(new Vec2Position(point.x*GSInst->getPhysWorldScale(), point.y*GSInst->getPhysWorldScale()));
+				}
+
+				auto point = edge.m_vertex2;
+				points.pushBack(new Vec2Position(point.x*GSInst->getPhysWorldScale(), point.y*GSInst->getPhysWorldScale()));
+			}
+		}
 		//Add logic for lines
 	}
 	return points;

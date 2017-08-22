@@ -34,12 +34,18 @@ public:
 	 * @Returns   
 	 */
 	float getSplineLength();
+	float getSplineLength(PointArray *spline);
+
+
 private:
 	virtual bool init(cocos2d::PointArray *spline) = 0;
 
 protected:
-	PointArray *spline;
+	PointArray *spline = nullptr, *cardinalSpline = nullptr;
 	SplineBasedContentBase();
+
+	PointArray *makeCardinalSpline(PointArray *config, float tension,  unsigned int segments);
+	void makeSplineVertexDistEqual();
 };
 
 /**
@@ -79,11 +85,12 @@ public:
 	 * @Param step distance between objects in pixels OR count of objects if splineRelative == true
 	 * @Param spreadPos randomize step. 0-1
 	 * @Param spreadAngle randomize of "vegetation" angle. Absolute, positive degrees value
+	 * @Param spreadH randomize Y pos. Absolute value in pixels 
 	 * @Param spreadDepth randomize of objects Z-order
 	 * @Param useSplineNormal will be use angle of "grow" surface point (normal)
 	 * @Param splineRelative if true will be use values for step between 0-1(Percents of spline length), otherwise pixels
 	 */
-	void growUp(float step, float spreadPos = 0, float spreadAngle = 0, int spreadDepth = 1, bool useSplineAngle = true, bool splineRelative = true);
+	void growUp(float step, float spreadPos = 0, float spreadAngle = 0, float spreadH = 0, int spreadDepth = 1, bool useSplineAngle = true, bool splineRelative = true);
 
 	/**
 	 * @brief adds cache from plist

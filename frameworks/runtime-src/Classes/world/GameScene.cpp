@@ -31,6 +31,7 @@ bool GameScene::init(const std::string &script, const std::string &worldname)
 	if(script.length())
 		ScriptingCore::getInstance()->runScript(gm::path::scripts + script);
 
+	return true;
 	PointArray *points = PointArray::create(0);
 	for(int posx = 0, posy = 0;posx <= 1000; posx += 20, posy += random(-10, 10))
 		points->addControlPoint(Vec2(posx, posy)); 
