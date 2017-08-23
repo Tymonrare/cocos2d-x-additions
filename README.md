@@ -1,5 +1,7 @@
 # cocos2d-x-additions
 
+![gif](https://github.com/Tymonrare/cocos2d-x-additions/blob/master/misc/doc/demo.gif?raw=true)
+
 - lot of JSB binding examples
 - box2d jsb bindings
 - [R.U.B.E.](https://www.iforce2d.net/rube/) scene and JS bindings
