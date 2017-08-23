@@ -10,7 +10,7 @@
 - Tested only on linux
 
 ## Build
- - It REALLY hard to run first because of JSB
+ - It REALLY hard to run first because of lot JSB issues
  - First of all you have to build box2d manually and copy it in any $PATH path(Because binding-generator causes error if box2d will try to build in Make)
  - Next you have to install all [binding-generator](https://github.com/cocos2d/bindings-generator) requirements
  - now you may try to run ./fullrun.sh
