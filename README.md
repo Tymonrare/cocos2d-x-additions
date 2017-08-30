@@ -21,3 +21,4 @@
 ## TODO
 
 - [Rope class](https://pixijs.github.io/examples/#/basics/textured-mesh.js)
+- Make build process easer
