@@ -3,7 +3,6 @@
 #include "ScriptingCore.h"
 #include <H/SplineBasedContent.h>
 
-
 GameScene *GameScene::instance = nullptr;
 
 GameScene * GameScene::create(const std::string &script, const std::string &worldname)

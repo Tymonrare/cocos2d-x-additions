@@ -60,11 +60,14 @@ using namespace cocos2d::experimental;
 using namespace CocosDenshion;
 #endif
 
+#include "H/SystemInput.h"
+
 USING_NS_CC;
 Size screenSize(1280, 720);
 
 AppDelegate::AppDelegate()
 {
+	new sys::SystemInput();
 }
 
 AppDelegate::~AppDelegate()

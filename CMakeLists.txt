@@ -132,6 +132,10 @@ file(GLOB GAME_UTILS_SRC
     ${RUNTIME_SRC_ROOT}/Classes/world/utils/*.cpp
 )
 
+file(GLOB SYSTEM_UTILS_SRC
+    ${RUNTIME_SRC_ROOT}/Classes/system/*.cpp
+)
+
 file(GLOB GAME_GRAPHICS_SRC
     ${RUNTIME_SRC_ROOT}/Classes/graphics/*.cpp
 )
@@ -154,6 +158,7 @@ else()
     ${GAME_PHYSICS_SRC}
     ${GAME_UTILS_SRC}
     ${GAME_GRAPHICS_SRC}
+    ${SYSTEM_UTILS_SRC}
   )
 endif()
 
