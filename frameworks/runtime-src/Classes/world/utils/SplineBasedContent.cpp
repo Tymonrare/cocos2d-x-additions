@@ -114,7 +114,6 @@ void SplineBasedContentBase::makeSplineVertexDistEqual(){
 	float minDist = -1;
 	for(int i = 0;i < spline->count() - 1;i++){
 		float dist = (spline->getControlPointAtIndex(i+1) - spline->getControlPointAtIndex(i)).length();
-		log("%f", dist);
 		if(minDist < 0 || dist < minDist)
 			minDist = dist;
 	}

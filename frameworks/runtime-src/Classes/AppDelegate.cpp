@@ -67,7 +67,6 @@ Size screenSize(1280, 720);
 
 AppDelegate::AppDelegate()
 {
-	new sys::SystemInput();
 }
 
 AppDelegate::~AppDelegate()
@@ -187,6 +186,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     ScriptEngineProtocol *engine = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     ScriptingCore::getInstance()->runScript("src/main.js");
+
+		new sys::SystemInput();
 
     return true;
 }

@@ -2,6 +2,7 @@
 #include "RUBE/RUBELayer.h"
 #include "ScriptingCore.h"
 #include <H/SplineBasedContent.h>
+#include <H/SystemInput.h>
 
 GameScene *GameScene::instance = nullptr;
 
@@ -22,34 +23,13 @@ bool GameScene::init(const std::string &script, const std::string &worldname)
 	cocos2d::log("scene created with %s script and %s world", script.c_str(), worldname.c_str());
 	instance = this;
 
-	if(worldname.length()){
-		auto RUBELayer = b_RUBELayer::create(worldname);
-		this->addChild(RUBELayer, 0);
-	}
+	setWorld(worldname);
 	
 	if(script.length())
 		ScriptingCore::getInstance()->runScript(gm::path::scripts + script);
 
-	PointArray *points = PointArray::create(0);
-	for(int posx = 0, posy = 0;posx <= 1000; posx += 20, posy += random(-10, 10))
-		points->addControlPoint(Vec2(posx, posy)); 
-
-	auto veg = SplineBasedVegetation::createWithFilename(points, "res/images/develop-tile.png");
-	addChild(veg);
-	veg->setBatchProperties(Size(8, 8));
-	veg->growUp(.03, 0.3);
-
-	timeval time;
-	gettimeofday(&time, NULL);
-	unsigned long millisecs = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	
-
-	schedule([=](float dt){
-			auto cpoints = points->getControlPoints();
-			for(int i = 0;i < cpoints->size();i++)
-				cpoints->at(i)->y = sin(i+(float)Director::getInstance()->getTotalFrames()/100)*10;
-			veg->updateSpline();
-			}, .01f, "test resume");
+	auto bind = std::bind(&GameScene::proceedConsoleCommand, this, std::placeholders::_1);
+	sys::SystemInput::listenCommand("scene", bind);
 
 	log("scene create success");
 	return true;
@@ -63,3 +43,21 @@ GameScene::~GameScene(){
 void GameScene::simpleJScallback(){
 	log("js test init callback");
 }
+
+void GameScene::setWorld(const std::string &worldname){
+	if(worldname.length()){
+		auto prev = this->getChildByName("worldNode");
+		if(prev) this->removeChild(prev);
+
+		auto RUBELayer = b_RUBELayer::create(worldname);
+		RUBELayer->setName("worldNode");
+		this->addChild(RUBELayer, 0);
+	}
+}
+
+void GameScene::proceedConsoleCommand(const std::vector<std::string>& args){
+	if(args.at(0) == "setworld"){
+		setWorld(args.at(1));
+	}
+}
+

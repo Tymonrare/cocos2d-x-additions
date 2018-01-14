@@ -1,0 +1,19 @@
+PING gitlab-front-gameprov.adamas.space (209.99.40.219) 56(84) bytes of data.
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=1 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=2 ttl=242 time=159 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=3 ttl=242 time=158 ms
+
+--- gitlab-front-gameprov.adamas.space ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2000ms
+rtt min/avg/max/mdev = 158.349/158.789/159.062/0.557 ms
+PING gitlab-front-gameprov.adamas.space (209.99.40.219) 56(84) bytes of data.
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=1 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=2 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=3 ttl=242 time=159 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=4 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=5 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=6 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=7 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=8 ttl=242 time=159 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=9 ttl=242 time=158 ms
+64 bytes from 209-99-40-219.fwd.datafoundry.com (209.99.40.219): icmp_seq=10 ttl=242 time=159 ms

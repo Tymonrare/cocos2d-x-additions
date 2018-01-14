@@ -71,10 +71,10 @@ test = cc.ComponentJS.extend({
       var contacts = this.getOwner().getContacts();
       for(var i in contacts){
         var mpoints = contacts[i].getManifoldPoints();
-        cc.log(mpoints.length);
+        //cc.log(mpoints.length);
         for(var ii in mpoints){
           var v = mpoints[ii].getLocalPoint();
-          cc.log(v.x, v.y);
+          //cc.log(v.x, v.y);
         }
       }
     },

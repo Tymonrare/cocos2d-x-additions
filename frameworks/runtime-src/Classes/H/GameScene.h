@@ -19,6 +19,8 @@ private:
 	static GameScene *instance;
 
 	bool init(const std::string &script, const std::string &worldname);
+	void proceedConsoleCommand(const std::vector<std::string>& args);
+	void setWorld(const std::string &worldname);
 
 	GameScene();
 
