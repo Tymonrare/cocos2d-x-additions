@@ -35,8 +35,9 @@ public:
 	 */
 	float getSplineLength();
 	float getSplineLength(PointArray *spline);
+	float getSplinePointsDensity();
 
-
+	void setDebugDraw(bool enabled);
 private:
 	virtual bool init(cocos2d::PointArray *spline) = 0;
 

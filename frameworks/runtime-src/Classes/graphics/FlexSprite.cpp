@@ -1,6 +1,6 @@
 #include <H/SpritePolygon.h>
 
-using namespace gm;
+using namespace Tools;
 
 FlexSprite* FlexSprite::create(const std::string& filename, const Size &density)
 {
@@ -31,7 +31,7 @@ bool FlexSprite::initWithFile(const std::string& filename, const Size &density){
 		rect.size = texture->getContentSize();
 		if(!initWithTexture(texture, rect)) return false;
 
-		_polyInfo = SpritePolygonTool::getGridPolygon(rect.size, density);
+		_polyInfo = SpritePolygonManager::genGridPolygon(rect.size, density);
 		_renderMode = RenderMode::POLYGON;
 		Node::setContentSize(_polyInfo.getRect().size / _director->getContentScaleFactor());
 		return true;
@@ -42,6 +42,6 @@ bool FlexSprite::initWithFile(const std::string& filename, const Size &density){
 	// this->release();
 	return false;
 }
-PolygonInfo *FlexSprite::getPolyginInfoDirect(){
+PolygonInfo *FlexSprite::getPolygonInfoDirect(){
 	return &_polyInfo;
 }

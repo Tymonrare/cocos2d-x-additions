@@ -3,6 +3,7 @@
 #include "ScriptingCore.h"
 #include <H/SplineBasedContent.h>
 #include <H/SystemInput.h>
+#include <H/tests/Cases.h>
 
 GameScene *GameScene::instance = nullptr;
 
@@ -30,6 +31,8 @@ bool GameScene::init(const std::string &script, const std::string &worldname)
 
 	auto bind = std::bind(&GameScene::proceedConsoleCommand, this, std::placeholders::_1);
 	sys::SystemInput::listenCommand("scene", bind);
+
+	Tests::SplineBasedContent::simpleWave();
 
 	log("scene create success");
 	return true;

@@ -6,6 +6,9 @@ SplineBasedContentBase::~SplineBasedContentBase(){
 };
 
 Point SplineBasedContentBase::getPointOnSpline(float where){
+	if(where < 0) where = 0;
+	if(where > 1) where = 1;
+
 	auto points = spline->getControlPoints();
 	int totalPoints = points->size() - 1;
 
@@ -24,15 +27,16 @@ Point SplineBasedContentBase::getPointOnSpline(float where){
 };
 
 Vec2 SplineBasedContentBase::getPointNolmal(float where){
-	auto points = spline->getControlPoints();
-	int totalPoints = points->size() - 1;
+	float density = getSplinePointsDensity();
+	Point origin = getPointOnSpline(where);
+	Point next = getPointOnSpline(where+density);
+	Point prev = getPointOnSpline(where-density);
 
-	//find nearest point on spline
-	int pI = std::min((int)std::floor(where * totalPoints), totalPoints - 1);
-
-	//TODO: use spline->getControlPointAtIndex instead
-	Vec2 vec = (*points->at(pI+1) - *points->at(pI)).getNormalized();
-	vec.rotate(Vec2::ZERO, M_PI/2);
+	Vec2 vecN = (next - origin).getNormalized();
+	vecN.rotate(Vec2::ZERO, M_PI/2);
+	Vec2 vecP = (prev - origin).getNormalized();
+	vecP.rotate(Vec2::ZERO, M_PI/2); vecP.negate();
+	Vec2 vec = vecN.getMidpoint(vecP).getNormalized();
 
 	return vec;
 };
@@ -49,6 +53,9 @@ float SplineBasedContentBase::getSplineLength(PointArray *spline){
 }
 float SplineBasedContentBase::getSplineLength(){
 	return getSplineLength(spline);
+}
+float SplineBasedContentBase::getSplinePointsDensity(){
+	return 1/(float)spline->getControlPoints()->size();
 }
 
 PointArray *SplineBasedContentBase::makeCardinalSpline(PointArray *config, float tension,  unsigned int segments)
@@ -82,8 +89,34 @@ PointArray *SplineBasedContentBase::makeCardinalSpline(PointArray *config, float
 		spline->addControlPoint(newPos);
 	}
 
+
 	return spline;
 	//CC_SAFE_DELETE_ARRAY(vertices);
+}
+
+void SplineBasedContentBase::setDebugDraw(bool enabled){
+	auto childNode = getChildByName("polygonDrawDebugNode");
+	if(!enabled){
+		if(childNode) childNode->removeFromParent();
+		return;
+	}
+
+	DrawNode *spDrawNode;
+	if(!childNode){
+		spDrawNode = DrawNode::create();
+		spDrawNode->setOpacity(200);
+		spDrawNode->setLineWidth(3);
+		addChild(spDrawNode, 0, "polygonDrawDebugNode");
+	}
+	else spDrawNode = static_cast<DrawNode*>(childNode);
+
+	spDrawNode->clear();
+	float step = getSplinePointsDensity();
+	for(float i = 0;i < 1;i+=step){
+		Vec2 here = getPointOnSpline(i);
+		spDrawNode->drawLine(here, getPointOnSpline(i+step), Color4F::GREEN);
+		spDrawNode->drawLine(here, here+getPointNolmal(i)*20, Color4F::YELLOW);
+	}
 }
 
 SplineBasedVegetation *SplineBasedVegetation::create(cocos2d::PointArray *spline){

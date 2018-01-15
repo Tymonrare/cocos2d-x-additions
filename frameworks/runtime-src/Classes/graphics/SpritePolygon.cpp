@@ -1,8 +1,8 @@
 #include <H/SpritePolygon.h>
 
-using namespace gm;
+using namespace Tools;
 
-PolygonInfo SpritePolygonTool::getGridPolygon(const Size &textureSize, const Size &density){
+PolygonInfo SpritePolygonManager::genGridPolygon(const Size &textureSize, const Size &density){
 	auto tri = triangulateGrid(makePointsGrid(textureSize, density), density);
 	calculateUV(textureSize, Rect(0,0, textureSize.width, textureSize.height), tri.verts, tri.vertCount);
 	PolygonInfo ret;
@@ -10,7 +10,7 @@ PolygonInfo SpritePolygonTool::getGridPolygon(const Size &textureSize, const Siz
 	return ret;
 }
 
-std::vector<Point> SpritePolygonTool::makePointsGrid(const Size &textureSize, const Size &density){
+std::vector<Point> SpritePolygonManager::makePointsGrid(const Size &textureSize, const Size &density){
 	std::vector<Point> points;
 
 	//density is count of triangles. Points coint is triangles +1
@@ -24,7 +24,7 @@ std::vector<Point> SpritePolygonTool::makePointsGrid(const Size &textureSize, co
 	return points;
 }
 
-TrianglesCommand::Triangles SpritePolygonTool::triangulateGrid(const std::vector<Point> &points, const Size &density){
+TrianglesCommand::Triangles SpritePolygonManager::triangulateGrid(const std::vector<Point> &points, const Size &density){
 	std::vector<V3F_C4B_T2F> verts;
 	std::vector<unsigned short> indices;
 
@@ -67,7 +67,7 @@ TrianglesCommand::Triangles SpritePolygonTool::triangulateGrid(const std::vector
 	return triangles;
 }
 
-void SpritePolygonTool::setDebugDraw(Sprite *sprite, bool enabled){
+void SpritePolygonManager::setDebugDraw(Sprite *sprite, bool enabled){
 	auto childNode = sprite->getChildByName("polygonDrawDebugNode");
 	if(!enabled){
 		if(childNode) childNode->removeFromParent();
@@ -105,7 +105,7 @@ void SpritePolygonTool::setDebugDraw(Sprite *sprite, bool enabled){
 
 }
 
-void SpritePolygonTool::calculateUV(const Size &textureSize, const Rect& rect, V3F_C4B_T2F* verts, ssize_t count)
+void SpritePolygonManager::calculateUV(const Size &textureSize, const Rect& rect, V3F_C4B_T2F* verts, ssize_t count)
 {
     /*
      whole texture UV coordination
